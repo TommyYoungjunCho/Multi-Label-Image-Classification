@@ -1,83 +1,78 @@
 # Multi-Label-Image-Classification
 
-<br />
+**Project Overview**
 
-# 📃 프로젝트 정보
+This project involves the implementation of various deep learning techniques to address a multi-label classification problem. The dataset provided includes images and captions, and the goal is to classify these images into multiple labels. By utilizing a combination of Convolutional Neural Networks (CNNs), Long Short-Term Memory (LSTM) networks, and Transformers, the project aims to leverage the strengths of each model to improve classification accuracy. The study explores the integration of natural language processing (NLP) with visual data to enhance model performance.
 
-### 1. 제작기간
+**Technologies Used**
 
-> 2022.07.07 ~ 09.02
+- **Programming Languages**: Python
+- **Libraries**: PyTorch, Transformers, Numpy, Pandas, Matplotlib
+- **Tools**: Jupyter Notebook, Google Colaboratory, Kaggle
 
-### 2. 참여 인원
+**Project Achievements**
 
-> |                    Name                    |  Position   |
-> | :----------------------------------------: | :---------: |
-> | [김동우](https://github.com/kimphysicsman) | Back, Front |
-> |   [김진수](https://github.com/creamone)    |    Back     |
-> |     [박진우](https://github.com/J1NU2)     |    Back     |
-> |    [최민기](https://github.com/mankic)     |    Back     |
+- **High Classification Accuracy:**
+    - Achieved an F1-score of 0.91891 with the hybrid model, demonstrating superior performance in multi-label classification.
+- **Innovative Use of Hybrid Models**:
+    - Successfully integrated CNNs, LSTMs, and Transformers to create a robust model capable of handling complex multi-label classification tasks.
+- **Significant Contributions to Multi-Modal Learning**:
+    - Demonstrated the benefits of combining textual and visual data for improving classification accuracy, offering valuable insights for future research in multi-modal learning.
 
-### 3. 역할 분담
+**Period**
 
-> - 김동우 : 여행일정 추천 기능 + Front 구성
+- 2024.3 ~ 2024.6
 
-<br />
+**GitHub Repository**
 
-# 📚 사용 기술
+- https://github.com/TommyYoungjunCho/Multi-Label-Image-Classification
 
-### 1. Back-end
+# Project Details
 
-> python3  
-> Django  
-> Django-rest-framwork
+1. **Data Description**:
+    - **Dataset**: Custom dataset with images and captions
+    - **Images**: Each image has associated labels and a short caption
+    - **Classes**: Multi-label classification with various possible labels per image
+    - **Evaluation Metric**: Mean F1-Score
+    
+2. **Data Exploration and Preprocessing**:
+    - **Normalization**: Standardized image pixel values to a range of 0 to 1.
+    - **Image Transformations**: Applied transformations such as resizing, horizontal and vertical flipping, and random cropping to enhance the dataset.
+    
+3. **Machine Learning Models**:
+    - **Model 1: Convolutional Neural Network (CNN)**:
+        - **Architecture**:
+            - Multiple convolutional layers followed by pooling layers and fully connected layers.
+        - **Activation Functions**: ReLU for hidden layers, Softmax for output layer
+        - **Optimization**: Adam optimizer
+        - **Loss Function**: Binary Cross-Entropy (BCE) loss for multi-label classification
+    - **Model 2: Hybrid Model (CNN + LSTM + Transformer)**:
+        - **Architecture**:
+            - **CNN Component**: Extracts visual features from images.
+            - **LSTM Component**: Processes sequential data from image captions.
+            - **Transformer Component**: Captures intricate dependencies and relationships in data.
+            - **Architecture**: Combination of CNN layers, LSTM layers, and Transformer encoder layers.
+            - **Optimization**: Adam optimizer
+            - **Loss Function**: MultiLabelSoftMarginLoss
+            
+4. **Hyperparameter Tuning**:
+    - **Dropout Rates**: Experimented with dropout rates of 0.5 and 0.7 to prevent overfitting.
+    - **Batch Sizes**: Tested with batch sizes of 30 and 50 to observe model convergence.
+    - **Number of Epochs**: Evaluated performance with 1 and 3 epochs to find the optimal training duration.
+    - **Learning Rates**: Compared learning rates of 0.001 and 0.01 to determine the best convergence speed.
+    
+5. **Result:**
+- **Performance Analysis**:
+    - Best performance achieved with a combination of 1 epoch, 0.5 dropout rate, batch size of 50, and learning rate of 0.001, yielding an F1-score of 0.91891.
+    - Detailed analysis revealed that lower dropout rates and learning rates significantly improved performance.
+- **Efficiency Analysis**:
+    - Larger batch sizes and lower learning rates contributed to shorter training times.
+    - Efficient training processes ensured minimal increase in training time across different epochs.
+    
+6. **Conclusion:**
+- The hybrid model outperformed the standalone CNN model in multi-label classification tasks by leveraging the strengths of each architecture.
+- Integrating textual data with visual data improved classification accuracy by providing richer context and information.
+- Future work includes refining the hybrid model structure and exploring additional data modalities for further performance enhancement.
 
-### 2. Front-end
-
-> React.js  
-> Node.js
-
-<br />
-
-# 📊 ERD & Structure
-
-<details>
-<summary>ERD</summary>
-<div markdown="1" style="padding-left: 15px;">
-<img src="https://user-images.githubusercontent.com/68724828/186067947-f255f9a4-d92d-45cd-ab7c-419ec92943f8.png" width="800px"/>
-</div>
-</details>
-
-<br />
-
-<details>
-<summary>Structure</summary>
-<div markdown="1" style="padding-left: 15px;">
-<img src="https://user-images.githubusercontent.com/68724828/186079270-28793ba1-466e-421f-baf2-563b890c926f.png" />
-</div>
-</details>
-
-<br />
-
-# 🔑 핵심기능
-
-### 1. 여행장소 검색
-
-> 사용자가 여행장소를 검색하면 DB에서 여행장소를 검색하고  
-> DB에 없는 장소이면 네이버지도에서 검색하여 최상단의 장소의 정보를 가져오고 DB에 저장합니다.  
-> [코드 보러가기](https://github.com/kimphysicsman/MyLittelTrip_backend/blob/5aa46e9ed2065045df17cc45baa41a9a2901b46b/recommend/functions/parsing.py#L64)
-
-### 2. 최단 여행경로 찾기 & 여행일정 만들기
-
-> 사용자가 입력한 여행장소들을 바탕으로 여행일정을 만듭니다.  
-> [코드 보러가기](https://github.com/kimphysicsman/MyLittelTrip_backend/blob/5aa46e9ed2065045df17cc45baa41a9a2901b46b/recommend/functions/schedule.py#L14)
-
-<br />
-
-# 📕 기타 자료
-
-### 1. 기획문서
-
-> [Blood Cell Image Classification using Machine Learning - Notion](https://www.notion.so/Blood-Cell-Image-Classification-using-Machine-Learning-ba5b2a7a88bc4314ae8d7a7b3f0433d3)
-
-### 2. 전체 portfolio
-> [ - Notion](https://www.notion.so/705d90d52e4e451488fb20e3d6653d3b)
+## Notion Portfolio Page
+- [[Notion Portfolio Page Link](https://magic-taleggio-e52.notion.site/Portfolio-705d90d52e4e451488fb20e3d6653d3b)](#) 
